@@ -1,0 +1,128 @@
+- alert vue js :
+
+
+- provide / inject : có thể truyền trực tiếp từ trên đầu(provide) bỏ qua thằng trung gian xuống đích(inject)
+
+- provide : có thể provide cho tất cả các con, cháu
+- inject : có thể nhận được từ cha, ông của chúng
+
+Custom event : 
+
+    - Về nguyên tắc : thằng nào nắm data -> được quyền thêm sửa xóa data
+
+    - Từ component cha -> con : props
+    - Từ component con -> cha : custom event
+    
+        Ex : this.$emit('tên event' , 'agr1','agr2,...))
+
+    - Khi phát triển phần mềm 
+    Core functions : 
+    
+
+    ex : App.vue là thăng nắm data -> chỉ có thằng App mới có quyền thêm, sửa, xóa
+
+
+    + Truyền event từ cha xuống con : $emit , $on
+    $emit : sending
+    $on : listening
+
+Refs : có thế lấy ra 1 cái element
+    this.$refs.[ref-name]
+
+
+Filter : hàm này ở vue 3 không còn được hỗ trợ , thay vào đó là dùng hàm 
+computed : {
+
+}
+để tính toán
+    - chuyển đổi kiểu dữ liệu cho phù hợp 
+
+style trong vue
+    src => build => html, css, js
+    - scoped : 
+    - lang = "sass"
+    sass => loader => css
+    scss => loader => css
+
+npm install sass
+npm install sass-loader -D
+npm install -D sass-loader@^10 sass
+
+
+vue lifecycle
+computed : 
+    - là các thuộc tính đã được tính toán, chỉ tính toán 1 lần ,    không tính toán lại kết quả nữa 
+    - methods : mỗi lần thay đổi data thì các hàm trong methods tính toán lại kết quả
+    - Chỉ chạy lại khi có các thuộc tính liên quan thay đổi
+watch : luôn luôn chạy khi nó thay đổi
+    - computed : chạy 1 lần khi component được mount vào
+
+
+transition : [Để sau]
+VueX :
+    - ToDoList : tasks : App.vue
+    - State management : quản lý trạng thái của ứng dụng
+    - Store : Chứa toàn bộ data của ứng dụng
+    - Tạo ra các nơi khác để lưu trữ data
+    - state : giống data : là trạng thái chung của ứngdụng  
+      
+    + mutations : là hàm để tăng các biến count
+    + Các state chỉ được thay đổi bằng các mutations
+
+helpers : 
+    - mapState : viết ở computed
+    ex : https://vuex.vuejs.org/guide/state.html#the-mapstate-helper
+
+
+    + mapMutation : 
+        - nhặt các mutation về component hiện tại
+        - cái nào cần dùng mới nhặt
+    ex : https://vuex.vuejs.org/guide/mutations.html#committing-mutations-in-components
+
+
+    ex :
+    import { mapState,mapMutations } from 'vuex';
+    // map this.count to store.state.count
+    computed: {
+        ...mapState(['count'])
+    },
+    
+    methods : {
+        ...mapMutations(['increment','decrement'])
+    }
+
+    actions : là các hàm tính toán
+    mutation: là các hàm để update
+    - context : trạng thái hiện tai của store
+        - state :  là trạng thái của store
+        - commit : ham goi mutation
+        - getter : lấy ra các state(data trong vue)
+        ex : 
+        actions: {
+        increment({ state, commit }) {
+            if (state.count > 5) {
+                commit('increment', 2)
+            } else {
+                commit('increment', 1)
+            }
+        },
+    EX : https://vuex.vuejs.org/guide/actions.html#dispatching-actions
+
+    mapActions : giống như mutations
+
+    - getter : lấy ra state 
+    - lấy các state(data) hơi sâu
+    mapGetter : giống như các mapState, mapMutation , mapAction
+
+    - module : phân chia vuex theo kiểu module
+    
+    - bài tập  :  viết ứng dụng todoList  : 
+                - Thêm 1 task : nội dung , thời gian
+                - Hiện thị danh sách todo list
+                - Xóa todoList
+                - tổng số task
+                - Hoàn thành : khi click vào sẽ bị gạch ngang
+
+
+    
+

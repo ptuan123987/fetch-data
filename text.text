@@ -123,6 +123,50 @@ helpers :
                 - tổng số task
                 - Hoàn thành : khi click vào sẽ bị gạch ngang
 
+vue router (routing) : bộ định tuyến
+    - muốn tạo ra 1 trang mới : file html
+    - SPA : single page application
+    - request đầu tiên : html ,css, request 
+    - request tiếp theo : data(json)
+    - npm install router
+
+url : có 2 phần : http://localhost:8080/contact
+
+http://localhost:8080 : phần server
+
+/contact : js xử lý(client)
+
+
+- router sẽ chạy ở dưới dạng là hashmode : 
+- history mode : history API
+
+
+- Rewrite URL : .htaccess ,nginx 
+goal : khi ta truy cập đến bất kì địa chỉ nào, đều truy cập đến đúng 1 file
+-route : 
+    path : 'link',
+    name : 'name',
+    component : 
+
+- dynamic routing : 
+
+    props : true
+    - chỉ viết được cái đầu tiên
+
+- alias : đường dẫn thay thế
+
+Route con : nested route
+    
+Login xong => nhảy đến trang account
+
+middleware: là những cái hàng rào 
+        ex : web có 3 thành phần : account, admin, contact
+            -  account : cần đăng nhập để vào trang account
+            -  admin : trang riêng
+            - contact : không cần đang nhập, không phải là admin cũng có thể vào được
+vue middleware :
+
+meta view : các tham số phụ thuộc thêm 
 
     
 

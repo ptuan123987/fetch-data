@@ -1,35 +1,31 @@
-<template> 
-  <div class="">
-    <!-- hiển thị danh sách users -->
-    <List/>
-  </div>
+<template>
+  <nav>
+    <router-link :to="{name:'home',params:{name:'abc'}}">Home</router-link> |
+    <router-link :to="{name:'about'}">About</router-link> |
+    <router-link  :to="{name:'user'}">Users</router-link> | 
+    <router-link :to="{name:'contact'}">Contact</router-link>
+  </nav>
+  <router-view/>
 </template>
-
-<script>
-import List from './components/ListUser.vue'
-export default {
-  name: 'App',
-  components: {
-    List
-  },
-  data() {
-    return {
-    }
-  }
-  
-}
-</script>
-
-<style>
+<style lang="scss">
 #app {
-  
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 
-@import'~bootstrap/dist/css/bootstrap.css'
+nav {
+  padding: 30px;
+
+  a {
+    font-weight: bold;
+    color: #2c3e50;
+
+    &.router-link-exact-active {
+      color: #42b983;
+    }
+  }
+}
 </style>
